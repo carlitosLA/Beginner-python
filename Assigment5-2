@@ -1,19 +1,21 @@
-largest = 0
-smallest = 1000
+largest = None
+smallest = None
 while True:
-    num = input("Enter a number: ")
-    if num == "done":
+    numero = input("Enter a number: ")
+    if numero == "done":
         break
-    check_number = num.isnumeric()
-    if check_number != True:
+    try:
+        num = int (numero)
+    except:
         print('Invalid input')
         continue
-    numero = int (num)
-    if numero < smallest :
-            smallest = numero
-    if numero > largest:
-         largest = numero
-    continue
-
-print("Maximum", largest)
-print("Minimum", smallest)
+    if smallest is None:
+         smallest = num
+    if largest is None:
+         largest = num
+    if num < smallest :
+            smallest = num
+    if num > largest:
+            largest = num
+print("Maximum is", largest)
+print("Minimum is", smallest)
