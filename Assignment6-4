@@ -1,0 +1,6 @@
+text = "X-DSPAM-Confidence:    0.8475"
+pos = text.find('0')
+length = text.__len__()
+extract = text[pos:length]
+number = float(extract)
+print (number)
