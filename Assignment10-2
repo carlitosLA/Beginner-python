@@ -3,7 +3,6 @@ if len(fname) < 1:
    fname = "mbox-short.txt"
 
 fh = open(fname)
-emails = list()
 hcount = dict ()
 hlst = []
 for line in fh:
@@ -18,5 +17,5 @@ for k,v in hcount.items():
 
 hlst.sort()
 
-for k,v in hlst:                                    #loop through list of tuples
+for k,v in hlst :
     print(k,v) 
