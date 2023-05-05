@@ -1,0 +1,22 @@
+fname = input("Enter file name: ")
+if len(fname) < 1:
+   fname = "mbox-short.txt"
+
+fh = open(fname)
+emails = list()
+hisotorygram = dict()
+for line in fh:
+    lista = line.split()
+    if line.startswith("From") and len(lista)>2:
+        email = lista[1]
+        hisotorygram[email] = hisotorygram.get(email,0) + 1
+        
+    continue
+max_sender = ""
+max_value = 0
+for key in hisotorygram:
+    if hisotorygram.get(key) > max_value :
+        max_value = hisotorygram.get(key)
+        max_sender = key
+print(max_sender, max_value)
+#print (hisotorygram)

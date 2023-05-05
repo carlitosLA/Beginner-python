@@ -1,0 +1,22 @@
+fname = input("Enter file name: ")
+if len(fname) < 1:
+   fname = "mbox-short.txt"
+
+fh = open(fname)
+emails = list()
+hcount = dict ()
+hlst = []
+for line in fh:
+    lista = line.split()
+    if line.startswith("From") and len(lista)>2:
+        hr = lista[5].split(':')
+        hcount[hr[0]] = hcount.get(hr[0],0) + 1 
+    continue
+
+for k,v in hcount.items():
+    hlst.append((k,v))
+
+hlst.sort()
+
+for k,v in hlst:                                    #loop through list of tuples
+    print(k,v) 

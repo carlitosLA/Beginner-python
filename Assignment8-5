@@ -1,0 +1,16 @@
+fname = input("Enter file name: ")
+if len(fname) < 1:
+    fname = "mbox-short.txt"
+
+fh = open("mbox-short.txt")
+emails = list()
+for line in fh:
+    lista = line.split()
+    if line.startswith("From") and len(lista)>2:
+        email = lista[1]
+        emails.append(email)
+        print (email)
+    continue
+
+
+print("There were", len(emails), "lines in the file with From as the first word")
